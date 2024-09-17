@@ -14,13 +14,13 @@ let rocketY = 0;
 const accelaration = 0.1;
 
 function setup() {
-  createCanvas(width, height);
+  createCanvas(windowWidth, windowHeight);
 }
 
-// stars
-for (let i = 0; i < 500; i++) {
-  const x = Math.floor(Math.random() * width);
-  const y = Math.floor(Math.random() * height);
+// Stars
+for (let i = 0; i < 1000; i++) {
+  const x = Math.floor(Math.random() * windowWidth);
+  const y = Math.floor(Math.random() * windowHeight);
   const alpha = Math.random();
 
   starX.push(x);
@@ -28,6 +28,7 @@ for (let i = 0; i < 500; i++) {
   starAlpha.push(alpha);
 }
 
+// Draw space
 function space() {
   background(0, 0, 0);
   fill(200, 200, 200);
@@ -39,6 +40,7 @@ function space() {
   rect(0, 700, 850, 150);
 }
 
+// Draw a rocket
 function rocket(x, y) {
   push();
   translate(x, y);
@@ -60,14 +62,14 @@ function draw() {
   if (startGame) {
     textSize(20);
     fill(200, 300, 200);
-    text("PRESS KEY TO START GAME", width - 430, height / 5);
+    text("PRESS KEY TO START GAME", width / 2, height / 5);
     if (keyIsPressed && key === " ") {
       startGame = false;
       gameRunning = true;
       gameFinish = false;
       gameWin = false;
     }
-    rocketY = 0;
+    rocketY = 6;
     velocity = 1;
   }
   if (gameRunning) {
@@ -82,16 +84,16 @@ function draw() {
     if (rocketY > 390) {
       gameRunning = false;
       if (velocity > 5) {
-        gameFinish = true;
+        gameFinish = true; // Crash
       } else {
-        gameWin = true;
+        gameWin = true; // Successful landing
       }
     }
   }
   if (gameFinish) {
     textSize(20);
     fill(200, 300, 200);
-    text("GAME OVER", width - 350, height / 5);
+    text("GAME OVER", width / 2, height / 5);
     if (mouseIsPressed) {
       gameFinish = false;
       startGame = true;
@@ -103,7 +105,7 @@ function draw() {
   if (gameWin) {
     textSize(20);
     fill(200, 300, 200);
-    text("YOU WON!", width - 350, height / 5);
+    text("YOU WON!", width / 2, height / 5);
     if (mouseIsPressed) {
       gameFinish = false;
       startGame = true;
