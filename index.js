@@ -12,8 +12,6 @@ let rocketX = 0;
 let rocketY = 0;
 
 const acceleration = 0.1;
-// const groundHeight = 100;
-// const rocketHeight = 500;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -62,9 +60,7 @@ function rocket(x, y) {
   pop();
 }
 
-// function fire() {
-//   fill(255, 0, 0);
-//   triangle(300, 600, 325, 225, 275, 225);
+// Following lines of code were edited with help of ChatGPT; link: https://chatgpt.com/share/67094e04-6ebc-8004-8c4e-b0ca9036445c; https://chatgpt.com/share/67094f82-8db0-8004-ad76-2db375761ea0
 
 function draw() {
   space();
@@ -97,7 +93,7 @@ function draw() {
       velocity = velocity - 0.5;
     }
 
-    // Fixing the rocket landing function with ChatGPT: https://chatgpt.com/g/g-HxPrv1p8v-code-tutor/c/6707e382-187c-8004-843e-e15801de6f0b
+    // Fixing the rocket landing function with ChatGPT: https://chatgpt.com/share/67094f82-8db0-8004-ad76-2db375761ea0
     if (rocketY + 275 > windowHeight - 100) {
       gameRunning = false;
 
